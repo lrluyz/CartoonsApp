@@ -1,0 +1,51 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            {{cartoon.superhero}}
+        </mat-card-title>
+
+        <mat-card-subtitle>
+            {{cartoon.alter_ego}}
+        </mat-card-subtitle>
+    </mat-card-header>
+
+    <!-- TODO imagen -->
+    <img mat-card-image [src]="cartoon | cartoonImage" [alt]="cartoon.superhero">
+
+    <mat-card-content class="mat-2">
+        <h4>{{cartoon.publisher}}</h4>
+        <p>
+            <strong>Primera aparici&oacute;n</strong>
+            {{cartoon.first_appearance}}
+
+            <mat-chip-listbox>
+                <mat-chip *ngFor="let name of cartoon.characters.split(',') | slice:0:3">
+                    {{name}}
+                </mat-chip>
+            </mat-chip-listbox>
+
+        </p>
+    </mat-card-content>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-actions>
+        <button mat-button mat-raised
+            color="warn"
+            [routerLink]="['/cartoon/edit', cartoon.id]">
+            <mat-icon>edit</mat-icon>
+            Editar
+        </button>
+
+        <span class="spacer"></span>
+
+        <button mat-button mat-raised
+            matTooltip="Ver m&aacute;s"
+            color="basic"
+            [routerLink]="['/cartoon/', cartoon.id]">
+        <mat-icon>more_horiz</mat-icon>
+    </button>
+
+    </mat-card-actions>
+
+</mat-card>

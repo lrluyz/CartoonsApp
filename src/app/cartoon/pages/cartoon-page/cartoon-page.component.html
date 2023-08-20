@@ -1,1 +1,45 @@
-<p>cartoon-page works!</p>
+<ng-template #divLoading>
+    <mat-grid-list cols="1">
+        <mat-grid-tile>
+            <mat-spinner></mat-spinner>
+        </mat-grid-tile>
+    </mat-grid-list>
+</ng-template>
+
+<div *ngIf="cartoon; else divLoading" class="grid p-2">
+    <mat-card class="col-12 sm:col-6">
+        <mat-card-header>
+            <mat-card-title>{{cartoon.superhero}}</mat-card-title>
+            <mat-card-subtitle>{{cartoon.alter_ego}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <img mat-card-image [src]="cartoon | cartoonImage" [alt]="cartoon.superhero">
+
+    </mat-card>
+
+    <mat-card class="col-12 sm:col-6">
+
+        <mat-card-header>
+            <mat-card-title>Informaci&oacute;n;</mat-card-title>
+            <mat-card-subtitle>{{cartoon.superhero}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <mat-list>
+                <mat-list-item>{{cartoon.first_appearance}}</mat-list-item>
+                <mat-list-item>{{cartoon.characters}}</mat-list-item>
+                <mat-list-item>{{cartoon.publisher}}</mat-list-item>
+                <mat-list-item>{{cartoon.alter_ego}}</mat-list-item>
+            </mat-list>
+        </mat-card-content>
+
+        <button
+            mat-button
+            color="warn"
+            (click)="goBack()">
+            Regresar
+        </button>
+
+    </mat-card>
+
+</div>

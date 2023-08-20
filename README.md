@@ -1,6 +1,11 @@
 # CartoonsApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.4.
+## Important
+
+1. Clonar proyecto
+2. Ejecutar ```npm install```
+3. Levantar backend ```npm run backend```
+2. Levantar proyecto ```npm start``` o ```ng serve``` 
 
 ## Development server
 
